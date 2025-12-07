@@ -47,7 +47,8 @@ Loop, Files, %targetFolder%\*.ahk, R
         continue ; Skip self and excluded subdirectories
 
     ; === TERMINATE EXISTING INSTANCES OF THE SCRIPT ===
-    Process, Exist, %fullPath%
+    WinClose, %A_LoopFileName% ahk_class AutoHotkey
+
     if (ErrorLevel) {
         ; Terminate any running instance of the script
         Process, Close, %ErrorLevel%
